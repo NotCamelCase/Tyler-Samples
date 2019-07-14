@@ -5,7 +5,7 @@
 
 #include "Display.h"
 
-#define CAM_MOVE_SPEED 1.f
+#define CAM_MOVE_SPEED 2.f
 
 using namespace tyler;
 
@@ -39,7 +39,7 @@ struct Mesh
 // Optional args to be passed to app
 struct Optional
 {
-    const char* m_OBJName = "./assets/sibenik.obj";
+    const char* m_OBJName = "./assets/chalet.obj";
     int32_t     m_SDLRendererIdx = 1;
     uint32_t    m_ScreenWidth = 1280;
     uint32_t    m_ScreenHeight = 768u;
@@ -66,7 +66,11 @@ TestParams  g_SibenikScene =
     glm::vec3(80.f, -13.f, 0.f)  // LookAt pos
 };
 
-TestParams  g_DefaultScene = g_SibenikScene;
+TestParams  g_DefaultScene =
+{
+    glm::vec3(3, 4, 5), // Eye pos
+    glm::vec3(0, 0, 0)  // LookAt pos
+};
 
 bool ParseCommandLine(int argc, char** ppArgv, RasterizerConfig* pConfig, Optional* pOptional, TestParams* pParams);
 
@@ -211,6 +215,7 @@ glm::vec4 VS(VertexInput* pVertexInput, VertexAttributes* pVertexAtributes, Cons
 
 void FS(InterpolatedAttributes* pVertexAttributes, ConstantBuffer* pConstantBuffer, FragmentOutput* pFragmentOut)
 {
+#if 1 // Render scaled normals
     __m128 sseX = _mm_mul_ps(pVertexAttributes->m_Vec3Attributes[0].m_SSEX, _mm_set_ps1(0.5f)); // x = x * 0.5
     __m128 sseY = _mm_mul_ps(pVertexAttributes->m_Vec3Attributes[0].m_SSEY, _mm_set_ps1(0.5f)); // y = y * 0.5
     __m128 sseZ = _mm_mul_ps(pVertexAttributes->m_Vec3Attributes[0].m_SSEZ, _mm_set_ps1(0.5f)); // z = z * 0.5
@@ -219,7 +224,8 @@ void FS(InterpolatedAttributes* pVertexAttributes, ConstantBuffer* pConstantBuff
     sseY = _mm_add_ps(sseY, _mm_set_ps1(0.5f)); // y = y * 0.5 + 0.5
     sseZ = _mm_add_ps(sseZ, _mm_set_ps1(0.5f)); // z = z * 0.5 + 0.5
 
-#if 1
+    // Ugly hack to transpose RRRR to interleaved RGBA pixel values
+
     // Sample #0
     pFragmentOut->m_FragmentColors[0].m128_f32[0] = sseX.m128_f32[0];
     pFragmentOut->m_FragmentColors[0].m128_f32[1] = sseY.m128_f32[0];
@@ -244,7 +250,6 @@ void FS(InterpolatedAttributes* pVertexAttributes, ConstantBuffer* pConstantBuff
     pFragmentOut->m_FragmentColors[3].m128_f32[2] = sseZ.m128_f32[3];
     pFragmentOut->m_FragmentColors[3].m128_f32[3] = 1.f;
 #else
-    // Sample #0
     _mm_store_ps(reinterpret_cast<float*>(&pFragmentOut->m_FragmentColors[0]), _mm_set1_ps(1.f));
     _mm_store_ps(reinterpret_cast<float*>(&pFragmentOut->m_FragmentColors[1]), _mm_set1_ps(1.f));
     _mm_store_ps(reinterpret_cast<float*>(&pFragmentOut->m_FragmentColors[2]), _mm_set1_ps(1.f));
@@ -258,6 +263,14 @@ int main(int argc, char** ppArgv)
     Optional opt = {};
     TestParams testParams = g_DefaultScene;
     if (!ParseCommandLine(argc, ppArgv, &config, &opt, &testParams)) return 0;
+
+    RenderContext* pRenderContext = new RenderContext(config);
+    if (!pRenderContext->Initialize())
+    {
+        assert(false && "RenderContext failed to initialize!");
+
+        delete pRenderContext;
+    }
 
     // Allocate color & depth buffers
     uint8_t* pColorBuffer = new uint8_t[opt.m_ScreenWidth * opt.m_ScreenHeight * 4]; // Color buffer format == R8G8B8A8_UNORM
@@ -304,17 +317,6 @@ int main(int argc, char** ppArgv)
     std::vector<Mesh> objects;
 
     InitializeSceneObjects(opt.m_OBJName, objects, vertexBuffer, indexBuffer);
-
-    RenderContext* pRenderContext = new RenderContext(config);
-    if (!pRenderContext->Initialize())
-    {
-        assert(false && "RenderContext failed to initialize!");
-
-        delete pRenderContext;
-        delete[] pColorBuffer;
-        delete[] pDepthBuffer;
-        delete pDisplay;
-    }
 
     // Bind FBO to be used in subsequent render pass once
     pRenderContext->BindFramebuffer(&fbo);

@@ -46,6 +46,14 @@ int main(int argc, char** ppArgv)
     RasterizerConfig config = {};
     if (!ParseCommandLine(argc, ppArgv, &config, &opt)) return 0;
 
+    RenderContext* pRenderContext = new RenderContext(config);
+    if (!pRenderContext->Initialize())
+    {
+        assert(false && "RenderContext failed to initialize!");
+
+        delete pRenderContext;
+    }
+
     // Allocate color & depth buffers
     uint8_t* pColorBuffer = new uint8_t[opt.m_ScreenWidth * opt.m_ScreenHeight * 4]; // Color buffer format == R8G8B8A8_UNORM
     float* pDepthBuffer = new float[opt.m_ScreenWidth * opt.m_ScreenHeight]; // Depth buffer format == D32_FLOAT
@@ -71,17 +79,6 @@ int main(int argc, char** ppArgv)
     };
 
     uint32_t indices[] = { 0, 1, 2 };
-
-    RenderContext* pRenderContext = new RenderContext(config);
-    if (!pRenderContext->Initialize())
-    {
-        assert(false && "RenderContext failed to initialize!");
-
-        delete pRenderContext;
-        delete[] pColorBuffer;
-        delete[] pDepthBuffer;
-        delete pDisplay;
-    }
 
     // Bind FBO to be used in subsequent render pass once
     pRenderContext->BindFramebuffer(&fbo);
