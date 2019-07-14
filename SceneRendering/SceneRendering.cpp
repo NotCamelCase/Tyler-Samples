@@ -5,7 +5,7 @@
 
 #include "Display.h"
 
-#define CAM_MOVE_SPEED 2.f
+#define CAM_MOVE_SPEED 5.f
 
 using namespace tyler;
 
@@ -39,7 +39,7 @@ struct Mesh
 // Optional args to be passed to app
 struct Optional
 {
-    const char* m_OBJName = "./assets/chalet.obj";
+    const char* m_OBJName = "./assets/rungholt.obj";
     int32_t     m_SDLRendererIdx = 1;
     uint32_t    m_ScreenWidth = 1280;
     uint32_t    m_ScreenHeight = 768u;
@@ -64,6 +64,12 @@ TestParams  g_SibenikScene =
 {
     glm::vec3(-36.f, -10.f, 1.f), // Eye pos
     glm::vec3(80.f, -13.f, 0.f)  // LookAt pos
+};
+
+TestParams  g_RungholtScene =
+{
+    glm::vec3(298.000, 299.000, 300.000), // Eye pos
+    glm::vec3(-5.000, 0.000, 0.000)      // LookAt pos
 };
 
 TestParams  g_DefaultScene =
@@ -480,8 +486,8 @@ int main(int argc, char** ppArgv)
 
                 pRenderContext->EndRenderPass();
 
-                //printf("Eye pos:    (%.3f, %.3f, %.3f)\n", testParams.m_EyePos.x, testParams.m_EyePos.y, testParams.m_EyePos.z);
-                //printf("LookAt pos: (%.3f, %.3f, %.3f)\n", testParams.m_LookAtPos.x, testParams.m_LookAtPos.y, testParams.m_LookAtPos.z);
+                printf("Eye pos:    (%.3f, %.3f, %.3f)\n", testParams.m_EyePos.x, testParams.m_EyePos.y, testParams.m_EyePos.z);
+                printf("LookAt pos: (%.3f, %.3f, %.3f)\n", testParams.m_LookAtPos.x, testParams.m_LookAtPos.y, testParams.m_LookAtPos.z);
 
                 const auto drawEnd = std::chrono::high_resolution_clock::now();
                 auto renderTime = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(drawEnd - drawBegin);
@@ -553,6 +559,10 @@ bool ParseCommandLine(int argc, char** ppArgv, RasterizerConfig* pConfig, Option
             else if (std::string(pOptional->m_OBJName).find("sponza") != std::string::npos)
             {
                 *pParams = g_SponzaScene;
+            }
+            else if (std::string(pOptional->m_OBJName).find("rungholt") != std::string::npos)
+            {
+                *pParams = g_RungholtScene;
             }
             else
             {
