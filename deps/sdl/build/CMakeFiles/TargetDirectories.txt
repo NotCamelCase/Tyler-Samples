@@ -1,0 +1,7 @@
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/SDL2-static.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/SDL2main.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/INSTALL.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/SDL2.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/uninstall.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/ZERO_CHECK.dir

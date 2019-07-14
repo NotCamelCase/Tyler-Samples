@@ -1,0 +1,48 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.14/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.14/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/CMakeLists.txt
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/3.14.1/CMakeCCompiler.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/3.14.1/CMakeCXXCompiler.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/3.14.1/CMakeRCCompiler.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/build/CMakeFiles/3.14.1/CMakeSystem.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/cmake/macros.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/cmake/sdlchecks.cmake
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/cmake_uninstall.cmake.in
+C:/Users/tayfun/Documents/DEV/TylerSamples/deps/sdl/include/SDL_config.h.cmake

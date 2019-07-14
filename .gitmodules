@@ -1,0 +1,9 @@
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "deps/tinyobjloader"]
+	path = deps/tinyobjloader
+	url = https://github.com/syoyo/tinyobjloader.git
+[submodule "deps/sdl"]
+	path = deps/sdl
+	url = https://github.com/spurious/SDL-mirror.git
