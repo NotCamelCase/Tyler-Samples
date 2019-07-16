@@ -39,7 +39,7 @@ struct Mesh
 // Optional args to be passed to app
 struct Optional
 {
-    const char* m_OBJName = "./assets/rungholt.obj";
+    const char* m_OBJName = "./assets/sponza.obj";
     int32_t     m_SDLRendererIdx = 1;
     uint32_t    m_ScreenWidth = 1280;
     uint32_t    m_ScreenHeight = 768u;
@@ -267,7 +267,7 @@ int main(int argc, char** ppArgv)
 {
     RasterizerConfig config = {};
     Optional opt = {};
-    TestParams testParams = g_DefaultScene;
+    TestParams testParams = g_SponzaScene;
     if (!ParseCommandLine(argc, ppArgv, &config, &opt, &testParams)) return 0;
 
     RenderContext* pRenderContext = new RenderContext(config);
@@ -486,8 +486,8 @@ int main(int argc, char** ppArgv)
 
                 pRenderContext->EndRenderPass();
 
-                printf("Eye pos:    (%.3f, %.3f, %.3f)\n", testParams.m_EyePos.x, testParams.m_EyePos.y, testParams.m_EyePos.z);
-                printf("LookAt pos: (%.3f, %.3f, %.3f)\n", testParams.m_LookAtPos.x, testParams.m_LookAtPos.y, testParams.m_LookAtPos.z);
+                //printf("Eye pos:    (%.3f, %.3f, %.3f)\n", testParams.m_EyePos.x, testParams.m_EyePos.y, testParams.m_EyePos.z);
+                //printf("LookAt pos: (%.3f, %.3f, %.3f)\n", testParams.m_LookAtPos.x, testParams.m_LookAtPos.y, testParams.m_LookAtPos.z);
 
                 const auto drawEnd = std::chrono::high_resolution_clock::now();
                 auto renderTime = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(drawEnd - drawBegin);
