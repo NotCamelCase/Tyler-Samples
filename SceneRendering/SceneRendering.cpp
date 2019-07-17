@@ -39,7 +39,7 @@ struct Mesh
 // Optional args to be passed to app
 struct Optional
 {
-    const char* m_OBJName = "./assets/sponza.obj";
+    const char* m_OBJName = "./assets/sibenik.obj";
     int32_t     m_SDLRendererIdx = 1;
     uint32_t    m_ScreenWidth = 1280;
     uint32_t    m_ScreenHeight = 768u;
