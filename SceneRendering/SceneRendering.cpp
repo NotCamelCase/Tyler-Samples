@@ -267,7 +267,7 @@ int main(int argc, char** ppArgv)
 {
     RasterizerConfig config = {};
     Optional opt = {};
-    TestParams testParams = g_SponzaScene;
+    TestParams testParams = g_DefaultScene;
     if (!ParseCommandLine(argc, ppArgv, &config, &opt, &testParams)) return 0;
 
     RenderContext* pRenderContext = new RenderContext(config);
