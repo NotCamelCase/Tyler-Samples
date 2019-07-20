@@ -56,8 +56,8 @@ struct TestParams
 
 TestParams  g_SponzaScene =
 {
-    glm::vec3(943.f, 304.f, 5.f), // Eye pos
-    glm::vec3(0, 0, 0)            // LookAt pos
+    glm::vec3(733.f, 569.f, -130.f),    // Eye pos
+    glm::vec3(0, 0, 0)                  // LookAt pos
 };
 
 TestParams  g_SibenikScene =
@@ -335,7 +335,7 @@ int main(int argc, char** ppArgv)
     // Bind shader constants
     pRenderContext->BindConstantBuffer(&cb);
 
-    //TODO: Bind shader, constant buffer, texture(s)
+    // Bind shader, constant buffer, texture(s)
     pRenderContext->BindShaders(VS, FS, metadata);
 
     if (opt.m_RunBenchmark)
@@ -372,7 +372,7 @@ int main(int argc, char** ppArgv)
             {
                 Mesh& mesh = objects[obj];
 
-                // Kick off draw. Note that it blocks callee until drawcall is completed
+                // Kick off draw. Note that it blocks the caller until drawcall is completed
                 pRenderContext->DrawIndexed(mesh.m_IdxCount, mesh.m_IdxOffset);
             }
 

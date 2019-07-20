@@ -88,6 +88,7 @@ int main(int argc, char** ppArgv)
     // Bind IBO
     pRenderContext->BindIndexBuffer(indices);
 
+    // Bind shader, constant buffer, texture(s)
     pRenderContext->BindShaders(VS, FS, metadata);
 
     SDL_Event event;
@@ -132,7 +133,7 @@ int main(int argc, char** ppArgv)
                 true, /*clearDepth*/
                 FLT_MAX /*depthValue*/);
 
-            // Kick off draw. Note that it blocks callee until drawcall is completed
+            // Kick off draw. Note that it blocks the caller until drawcall is completed
             pRenderContext->DrawIndexed(3, 0);
 
             pRenderContext->EndRenderPass();
