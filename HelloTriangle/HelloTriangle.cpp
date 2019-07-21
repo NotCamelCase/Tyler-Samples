@@ -78,15 +78,11 @@ int main(int argc, char** ppArgv)
         { 0.f, -0.5f, 1.f, 1.f }
     };
 
-    uint32_t indices[] = { 0, 1, 2 };
-
     // Bind FBO to be used in subsequent render pass once
     pRenderContext->BindFramebuffer(&fbo);
 
     // Bind VBO and set buffer stride
     pRenderContext->BindVertexBuffer(vertices, sizeof(Vertex));
-    // Bind IBO
-    pRenderContext->BindIndexBuffer(indices);
 
     // Bind shader, constant buffer, texture(s)
     pRenderContext->BindShaders(VS, FS, metadata);
@@ -134,7 +130,7 @@ int main(int argc, char** ppArgv)
                 FLT_MAX /*depthValue*/);
 
             // Kick off draw. Note that it blocks the caller until drawcall is completed
-            pRenderContext->DrawIndexed(3, 0);
+            pRenderContext->Draw(3, 0);
 
             pRenderContext->EndRenderPass();
 
